@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  weatherCol-app:
+    image: weathercol-image-dev
+    build: .
+          
+    ports:
+      - 8000:8000
+
+    volumes:
+      - .:/usr/src/app
+
+    container_name: weatherCol-app-dev
