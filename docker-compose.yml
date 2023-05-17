@@ -9,6 +9,6 @@ services:
       - 8000:8000
 
     volumes:
-      - .:/usr/src/app
+      - .:/usr/src/weatherCol-app
 
     container_name: weatherCol-app-dev

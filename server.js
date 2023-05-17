@@ -1,9 +1,9 @@
 import express from "express";
+import { makeQuery } from "./weatherAPI.js";
 
+const app = express();
 
-const app = express()
-
-app.get("/", (request, response) => response.send("Welcome to weatherCol-app"));
+app.get("/", makeQuery);
 
 app.listen(8000, ()=>{
     console.log("WheatherCol listening at port 8000");
