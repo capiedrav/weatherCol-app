@@ -1,0 +1,31 @@
+#hero{
+    margin-bottom: auto;
+}
+
+#hero img{
+    max-width: 100%;    
+}
+
+#hero h1, #hero h4{
+    margin-bottom: 30px;
+}
+#hero h2{
+    margin-bottom: 40px;
+}
+#brand{
+    font-size: 1.1em;
+    color: blueviolet;    
+}
+
+@media screen and (max-width: 576px) {
+    #hero img{
+        display: none;
+    }
+    
+}
+@media screen and (max-width: 768px) {
+    #hero img{
+        max-width: 75%;
+    }
+    
+}

@@ -1,9 +1,22 @@
 import express from "express";
+import expressHandlebars from "express-handlebars";
+import { dirname } from "path";
+import {fileURLToPath} from "url"
 import { makeQuery } from "./weatherAPI.js";
 
 const app = express();
 
-app.get("/", makeQuery);
+// setup template engine
+app.engine("hbs", expressHandlebars.engine({defaultLayout: false, extname: ".hbs"}));
+app.set("view engine", "hbs");
+// app.set("views", [`${dirname(fileURLToPath(import.meta.url))}/views/`,]);
+
+// setup use of static files
+app.use(express.static("./public"));
+
+app.get("/", (request, response) => {
+    response.render("home");
+});
 
 app.listen(8000, ()=>{
     console.log("WheatherCol listening at port 8000");
