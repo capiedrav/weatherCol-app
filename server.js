@@ -14,9 +14,14 @@ app.set("view engine", "hbs");
 // setup use of static files
 app.use(express.static("./public"));
 
+// middleware for form processing
+app.use(express.urlencoded({extended: false}));
+
 app.get("/", (request, response) => {
     response.render("home");
 });
+
+app.post("/", makeQuery);
 
 app.listen(8000, ()=>{
     console.log("WheatherCol listening at port 8000");

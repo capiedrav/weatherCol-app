@@ -15,16 +15,46 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-7 col-md">
-              <h1>Welcome to <span id="brand">weatherCol-app</span></h1>
-              <h2>With this app you can check the weather of any of the cities or towns of Colombia</h2>
+              <h1>Welcome to <span class="text-with-emphasis">weatherCol-app</span></h1>
+              <h2>With this app you can check the weather of any of the city or town in <span class="text-with-emphasis">Colombia</span></h2>
               <h4>This app is based in <em>Express.js</em> and consumes data from <a href="https://www.weatherapi.com/">weatherAPI</a></h4>
             </div>
             <div class="col-lg-5 col-md">
-              <img src="/images/colombian-map.avif" alt="map of colombia">
+              <img src="/images/colombian-map.png" alt="map of colombia">
+            </div>
+          </div>
+        </div>        
+      </section>
+      <section id="weather">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-7 col-md">
+              <h4>Check the weather of any city or town in Colombia</h4>
+              <form id="city-form" action="/" method="POST">
+                <label for="city">Enter name of city or town in Colombia</label>
+                <input class="form-control" type="text" maxlength="50" placeholder="name of a city in Colombia" name="city">
+                <button class="btn btn-primary" type="submit">Submit</button>
+              </form>
+            </div>
+            <div class="col-lg-5 col-md">
+              <h4 class="text-center">Weather conditions for <span class="text-with-emphasis">{{city}}</span>:</h4>              
+              <div id="weather-container">                
+                <div id="weather-conditions">
+                  <img src="{{weatherConditionImage}}" alt="weatherCondition">
+                  <p>{{condition}}</p>                  
+                </div>                
+                <div id="weather-measurements">
+                  <p class="measurements">Temperature: <span class="text-body-secondary">{{temperature}} °C</span></p>
+                  <p class="measurements">Relative humidity: <span class="text-body-secondary">{{hr}} %</span></p>
+                  <p class="measurements">precipitation: <span class="text-body-secondary">{{precipitation}} mm</span></p>                  
+                </div>                                
+              </div>
+              <p class="meta-data">Local time: <span class="text-body-secondary">{{localtime}}</span></p>
+              <p class="meta-data">last updated: <span class="text-body-secondary">{{lastUpdated}}</span></p>
             </div>
           </div>
         </div>
-        
+
       </section>
       
     </main>

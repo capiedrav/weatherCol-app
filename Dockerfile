@@ -22,5 +22,7 @@ RUN npm install && mkdir node_modules/weatherAPILib && mv node_modules ../
 COPY --from=unzipper /weatherAPI/weatherAPILib/ ../node_modules/weatherAPILib
 
 EXPOSE 8000
-CMD ["npx", "nodemon", "server.js"]
+
+# excute nodemon specifying an extension watch list
+CMD ["npx", "nodemon",  "server.js"]
 COPY . .

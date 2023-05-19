@@ -5,16 +5,26 @@ let controller = lib.APIsController;
 
 
 function makeQuery(request, response){
-    const query = "Medellin";
+    const city = request.body.city; // get city entered in the form
 
-    controller.getRealtimeWeather(query)
+    controller.getRealtimeWeather(city)
     .then(data => {
-        // console.log(data);
-        response.json(data);
+        
+        const context = { //data to be rendered in the template
+            city: data.location.name,
+            localtime: data.location.localtime,
+            lastUpdated: data.current.lastUpdated,
+            temperature: data.current.tempC, 
+            hr: data.current.humidity,
+            precipitation: data.current.precipMm, 
+            condition: data.current.condition.text,
+            weatherConditionImage: data.current.condition.icon
+        }        
+        response.render("home", context);
     })
     .catch(error => {
         console.log(error)
-        response.json(error);
+        response.render("home");
     });
 }
 

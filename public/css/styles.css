@@ -1,9 +1,14 @@
 #hero{
-    margin-bottom: auto;
+    background-color: rgb(203, 227, 252);
+    padding-top: 20px;
 }
 
 #hero img{
     max-width: 100%;    
+}
+
+#hero a{
+    text-decoration: none;
 }
 
 #hero h1, #hero h4{
@@ -12,11 +17,53 @@
 #hero h2{
     margin-bottom: 40px;
 }
-#brand{
+.text-with-emphasis{
     font-size: 1.1em;
     color: blueviolet;    
 }
 
+#weather{
+    background-color: rgb(212, 241, 241);   
+    margin-bottom: auto;
+    padding-top: 20px;
+}
+
+#city-form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;    
+    padding: 10px;
+    max-width: 50%    
+}
+
+#city-form *{
+    margin-bottom: 10px;
+}
+
+#weather-container{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px;
+    border: 1px solid gray;    
+}
+
+#weather-conditions{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+}
+#weather-measurements{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.meta-data{
+    text-align: center;
+    font-size: 0.9em;
+    margin-bottom: 0.5em;
+}
 @media screen and (max-width: 576px) {
     #hero img{
         display: none;
@@ -29,3 +76,4 @@
     }
     
 }
+
