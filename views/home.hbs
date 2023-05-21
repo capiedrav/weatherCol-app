@@ -6,12 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"> <!-- bootstrap icons -->
     <link rel="stylesheet" type="text/css" href="/css/styles.css" />
     <title>weatherCol-app</title>
   </head>
   <body>
     <main>
-      <section id="hero">
+      <section id="hero-section">
         <div class="container">
           <div class="row">
             <div class="col-lg-7 col-md">
@@ -25,43 +26,46 @@
           </div>
         </div>        
       </section>
-      <section id="weather">
+      <section id="weather-section">
         <div class="container">
           <div class="row">
             <div class="col-lg-7 col-md">
               <h4>Check the weather of any city or town in Colombia</h4>
-              <form id="city-form" action="/" method="POST">
-                <label for="city">Enter name of city or town in Colombia</label>
-                <input class="form-control" type="text" maxlength="50" placeholder="name of a city in Colombia" name="city">
-                <button class="btn btn-primary" type="submit">Submit</button>
+              <form id="city-form" action="/" method="POST" onsubmit="makeContainerVisible()">
+                <label for="city">Enter name of city or town in Colombia</label>        
+                <input class="form-control" type="text" maxlength="50" placeholder="City or town in Colombia" name="city" required="true">                                
+                <button class="btn btn-primary" type="submit" id="submit-button">Submit</button>
               </form>
             </div>
-            <div class="col-lg-5 col-md">
-              <h4 class="text-center">Weather conditions for <span class="text-with-emphasis">{{city}}</span>:</h4>              
-              <div id="weather-container">                
-                <div id="weather-conditions">
-                  <img src="{{weatherConditionImage}}" alt="weatherCondition">
-                  <p>{{condition}}</p>                  
-                </div>                
-                <div id="weather-measurements">
-                  <p class="measurements">Temperature: <span class="text-body-secondary">{{temperature}} °C</span></p>
-                  <p class="measurements">Relative humidity: <span class="text-body-secondary">{{hr}} %</span></p>
-                  <p class="measurements">precipitation: <span class="text-body-secondary">{{precipitation}} mm</span></p>                  
-                </div>                                
+            {{#if post}} {{! render the following div only on POST requests }}
+              <div class="col-lg-5 col-md">
+                <h4 class="text-center">Weather conditions for <span class="text-with-emphasis">{{city}}</span>:</h4>              
+                <div id="weather-container">                
+                  <div id="weather-conditions">
+                    <img src="{{weatherConditionImage}}" alt={{condition}}>
+                    <p>{{condition}}</p>                  
+                  </div>                
+                  <div id="weather-measurements">
+                    <p class="measurements">Temperature: <span class="text-body-secondary">{{temperature}} °C</span></p>
+                    <p class="measurements">Relative humidity: <span class="text-body-secondary">{{hr}} %</span></p>
+                    <p class="measurements">precipitation: <span class="text-body-secondary">{{precipitation}} mm</span></p>                  
+                  </div>                                
+                </div>
+                <p class="weather-meta-data">Local time: <span class="text-body-secondary">{{localtime}}</span></p>
+                <p class="weather-meta-data">last updated: <span class="text-body-secondary">{{lastUpdated}}</span></p>
               </div>
-              <p class="meta-data">Local time: <span class="text-body-secondary">{{localtime}}</span></p>
-              <p class="meta-data">last updated: <span class="text-body-secondary">{{lastUpdated}}</span></p>
-            </div>
+            {{/if}}
           </div>
         </div>
-
-      </section>
-      
+      </section>      
     </main>
     <footer>
-      <p>Designed by capiedrav. All rights reserved &copy;</p>
+      <p>Designed by Carlos Piedrahita. All rights reserved &copy;</p>
+      <a href="mailto:capiedrav@gmail.com"><i class="bi bi-envelope"></i></a>
+      <a href="https://github.com/capiedrav"><i class="bi bi-github"></i></a>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    {{!-- <script src="/js/frontend.js"></script> --}}
   </body>
 
 </html>

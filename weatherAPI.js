@@ -18,7 +18,8 @@ function makeQuery(request, response){
             hr: data.current.humidity,
             precipitation: data.current.precipMm, 
             condition: data.current.condition.text,
-            weatherConditionImage: data.current.condition.icon
+            weatherConditionImage: data.current.condition.icon,
+            post: true // renders data in the template
         }        
         response.render("home", context);
     })

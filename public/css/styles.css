@@ -1,20 +1,20 @@
-#hero{
+#hero-section{
     background-color: rgb(203, 227, 252);
     padding-top: 20px;
 }
 
-#hero img{
+#hero-section img{
     max-width: 100%;    
 }
 
-#hero a{
+#hero-section a{
     text-decoration: none;
 }
 
-#hero h1, #hero h4{
+#hero-section h1, #hero-section h4{
     margin-bottom: 30px;
 }
-#hero h2{
+#hero-section h2{
     margin-bottom: 40px;
 }
 .text-with-emphasis{
@@ -22,7 +22,7 @@
     color: blueviolet;    
 }
 
-#weather{
+#weather-section{
     background-color: rgb(212, 241, 241);   
     margin-bottom: auto;
     padding-top: 20px;
@@ -59,19 +59,33 @@
     justify-content: space-evenly;
 }
 
-.meta-data{
+.weather-meta-data{
     text-align: center;
     font-size: 0.9em;
     margin-bottom: 0.5em;
 }
+
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(154, 158, 168);
+    text-align: center;    
+}
+
+footer i{
+    font-size: 2em;
+    color: black;
+    margin: 0 10px;
+}
 @media screen and (max-width: 576px) {
-    #hero img{
+    #hero-section img{
         display: none;
     }
     
 }
 @media screen and (max-width: 768px) {
-    #hero img{
+    #hero-section img{
         max-width: 75%;
     }
     
