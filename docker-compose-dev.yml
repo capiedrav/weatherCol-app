@@ -1,14 +1,21 @@
+# docker-compose file for development branch of weatherCol-app
+
 version: '3.7'
 
 services:
   weatherCol-app:
     image: weathercol-image-dev
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile-dev
           
     ports:
       - 8000:8000
 
     volumes:
       - .:/usr/src/weatherCol-app
+
+    env_file:
+      - env-vars-prod.env
 
     container_name: weatherCol-app-dev
