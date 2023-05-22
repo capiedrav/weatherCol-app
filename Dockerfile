@@ -1,4 +1,4 @@
-# Dockerfile for development branch of weatherCol-app
+# Dockerfile for main branch of weatherCol-app
 
 FROM node:16-alpine as unzipper
 # install unzip command
@@ -11,11 +11,11 @@ WORKDIR /weatherAPI/weatherAPILib
 RUN npm install
 
 FROM node:16-alpine
-ENV NODE_ENV=dev
+ENV NODE_ENV=prod
 # install dependencies for weatherCol-app
 WORKDIR /usr/src/weatherCol-app
 COPY package*.json ./
-RUN npm install && mkdir node_modules/weatherAPILib && mv node_modules ../
+RUN npm install --production && mkdir node_modules/weatherAPILib && mv node_modules ../
 
 # copy WeatherAPILib from "unzipper" image into "node_modules/weatherAPILib" folder
 # "COPY" copies the contents of a directory, not the directory itself
@@ -24,5 +24,5 @@ COPY --from=unzipper /weatherAPI/weatherAPILib/ ../node_modules/weatherAPILib
 EXPOSE 8000
 
 # excute nodemon specifying an extension watch list
-CMD ["npx", "nodemon",  "server.js"]
+CMD ["node", "server.js"]
 COPY . .

@@ -1,14 +1,17 @@
+# docker-compose file for main (production) branch
+
 version: '3.7'
 
 services:
   weatherCol-app:
-    image: weathercol-image-dev
-    build: .
+    image: weathercol-image-prod
+    build: .     
           
     ports:
       - 8000:8000
+      
+    env_file:
+      - env-vars-prod.env
+    
 
-    volumes:
-      - .:/usr/src/weatherCol-app
-
-    container_name: weatherCol-app-dev
+    container_name: weatherCol-app-prod

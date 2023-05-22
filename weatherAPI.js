@@ -1,6 +1,6 @@
 import lib from "weatherAPILib";
 
-lib.Configuration.key = "c9622fc1e06244eda40192657231505"
+lib.Configuration.key = process.env.WEATHER_API_KEY;
 let controller = lib.APIsController;
 
 
