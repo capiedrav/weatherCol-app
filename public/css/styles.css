@@ -1,5 +1,14 @@
 body{
+  min-height: 100vh;
   font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.invisible{
+  display: none;
+  visibility: hidden;
 }
 
 #hero-section {
@@ -26,10 +35,11 @@ body{
 }
 
 #weather-section {
-  background-color: rgb(212, 241, 241);
-  margin-bottom: auto;
+  background-color: rgb(212, 241, 241);  
   padding-top: 20px;
-  border-bottom: 2px solid rgb(178, 188, 192);  
+  border-bottom: 2px solid rgb(178, 188, 192);
+  flex: 1 0 auto;
+  margin-bottom: auto;
 }
 
 #city-form {
@@ -48,7 +58,7 @@ body{
   display: flex;
   justify-content: space-evenly;
   padding: 10px;
-  border: 1px solid gray;
+  border: 1px solid gray;  
 }
 
 #weather-conditions {
@@ -75,7 +85,9 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(122, 142, 202);    
+  background-color: rgb(122, 142, 202);
+  /* margin-top: auto;   */
+     
 }
 
 footer a {
@@ -109,7 +121,8 @@ footer a {
   footer {
     display: flex;
     flex-direction: column;    
-    align-items: center;   
+    align-items: center; 
+    
   }
 
 }
