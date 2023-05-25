@@ -31,7 +31,7 @@ function makeQuery(request, response){
     })
     .catch(error => {
         console.log(error)
-        response.render("home");
+        response.render("home", {errorMessage: "Something went wrong, try again."});
     });
 }
 

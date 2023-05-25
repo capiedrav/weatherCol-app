@@ -11,10 +11,16 @@ body{
   visibility: hidden;
 }
 
+main {
+  display: flex;
+  flex-direction: column;  
+  flex: 4 0 auto; 
+}
 #hero-section {
   background-color: rgb(203, 227, 252);
   padding-top: 20px;
   border-bottom: 2px solid rgb(178, 188, 192);
+  flex: 2 0 auto;  
 }
 
 #hero-section img {
@@ -39,7 +45,6 @@ body{
   padding-top: 20px;
   border-bottom: 2px solid rgb(178, 188, 192);
   flex: 1 0 auto;
-  margin-bottom: auto;
 }
 
 #city-form {
@@ -86,7 +91,7 @@ footer {
   justify-content: center;
   align-items: center;
   background-color: rgb(122, 142, 202);
-  /* margin-top: auto;   */
+  flex: 1 0 auto; 
      
 }
 
