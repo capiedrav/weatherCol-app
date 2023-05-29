@@ -23,6 +23,6 @@ COPY --from=unzipper /weatherAPI/weatherAPILib/ ../node_modules/weatherAPILib
 
 EXPOSE 8000
 
-# excute nodemon specifying an extension watch list
+# excute nodemon
 CMD ["npx", "nodemon", "server.js"]
 COPY . .

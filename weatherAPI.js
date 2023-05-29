@@ -16,6 +16,7 @@ function makeQuery(request, response){
         else{
             const context = { //data to be rendered in the template
                 city: data.location.name,
+                region: data.location.region,
                 localtime: data.location.localtime,
                 lastUpdated: data.current.lastUpdated,
                 temperature: data.current.tempC, 

@@ -44,7 +44,7 @@
             </div>
             {{#if post}} {{! render the following div only on POST requests }}
               <div class="col-lg-5 col-md">
-                <h4 class="text-center">Weather conditions for <span class="text-with-emphasis">{{city}}</span>:</h4>              
+                <h4 class="text-center">Weather conditions for<br><span class="text-with-emphasis">{{city}} - {{region}}</span>:</h4>              
                 <div id="weather-container">                
                   <div id="weather-conditions">
                     <img src="{{weatherConditionImage}}" alt={{condition}}>
@@ -67,8 +67,8 @@
     <footer>
       <p>Designed by Carlos Piedrahita. All rights reserved &copy;</p>
       <p>
-        <a href="mailto:capiedrav@gmail.com"><i class="bi bi-envelope"></i></a>
-        <a href="https://github.com/capiedrav"><i class="bi bi-github"></i></a>
+        <a href="mailto:capiedrav@gmail.com" target="_blank"><i class="bi bi-envelope"></i></a>
+        <a href="https://github.com/capiedrav/weatherCol-app" target="_blank"><i class="bi bi-github"></i></a>
       </p>
       
     </footer>
