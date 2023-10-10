@@ -1,5 +1,3 @@
-# Dockerfile for main branch of weatherCol-app
-
 FROM node:16-alpine as unzipper
 # install unzip command
 RUN apk add unzip

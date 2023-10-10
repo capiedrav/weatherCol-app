@@ -1,17 +1,55 @@
-# docker-compose file for main (production) branch
-
 version: '3.7'
 
 services:
-  weatherCol-app:
-    image: weathercol-image-prod
+  weathercol-app:    
     build: .     
           
-    ports:
-      - 8000:8000
+    expose:
+      - 8000
       
     env_file:
-      - env-vars-prod.env
-    
+      - .env-vars-prod.env
 
-    container_name: weatherCol-app-prod
+    restart: unless-stopped
+
+    networks:
+      - weatherCol-app_network
+
+    container_name: "weatherCol-app_web"
+  
+  nginx:
+    # location of nginx's Dockerfile
+    build: ./nginx/
+    
+    depends_on:
+      - "weathercol-app"
+
+    volumes:
+      - ./public:/var/www/weatherCol-app/public/
+
+    restart: unless-stopped
+
+    networks:
+      - weatherCol-app_network
+    
+    container_name: "weatherCol-app_nginx"
+
+  weathercol-app_tunnel:
+    # cloudflare tunnel
+    image: cloudflare/cloudflared:1449-569a7c3c9ed0
+
+    env_file:
+      - .env-vars-prod.env    
+
+    command: tunnel --no-autoupdate run
+
+    restart: unless-stopped
+      
+    networks:
+      - weatherCol-app_network
+
+    container_name: "weatherCol-app_tunnel"
+
+networks:
+  weatherCol-app_network:
+    external: true

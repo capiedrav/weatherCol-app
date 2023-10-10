@@ -11,8 +11,8 @@ app.engine("hbs", expressHandlebars.engine({defaultLayout: false, extname: ".hbs
 app.set("view engine", "hbs");
 // app.set("views", [`${dirname(fileURLToPath(import.meta.url))}/views/`,]);
 
-// setup use of static files
-app.use(express.static("./public"));
+// *** static files are served by nginx ***
+//app.use(express.static("./public"));
 
 // middleware for form processing
 app.use(express.urlencoded({extended: false}));
