@@ -36,7 +36,7 @@ services:
 
   weathercol-app_tunnel:
     # cloudflare tunnel
-    image: cloudflare/cloudflared:1449-569a7c3c9ed0
+    image: cloudflare/cloudflared:2026.10.3
 
     env_file:
       - .env-vars-prod.env    
